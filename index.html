@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Алексей Сафонов — QA, E2E, Playwright, CI/CD и AI-assisted testing. Мой подход к качеству и мини-аудит Site.pro.">
+  <title>Алексей Сафонов · QA × AI · Отклик в Site.pro</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b111e; --ink:#f7f9fd; --muted:#a6b3c6; --line:#2a3850; --cyan:#77e6e0; --lav:#afaeff; --yellow:#ffdd96; --card:#141f32; --soft:#192a3c; }
+    * { box-sizing:border-box; }
+    html {scroll-behavior:smooth}
+    body {margin:0;background:radial-gradient(850px 680px at 86% 3%, #1f3a55 0%,transparent 70%),radial-gradient(740px 570px at -25% 16%, #182449 0%,transparent 65%),var(--bg); color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+    a {color:inherit;text-decoration:none}
+    a:focus-visible {outline:3px solid var(--cyan);outline-offset:4px}
+    .wrap {max-width:1120px;margin:0 auto;padding:0 26px}
+    .top {display:flex;justify-content:space-between;align-items:center;padding:28px 0 18px;gap:18px}
+    .brand {font-size:14px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+    .mark {width:32px;height:32px;display:inline-grid;place-items:center;border:1px solid var(--cyan);border-radius:10px;color:var(--cyan);font-size:14px}
+    .nav {display:flex;gap:26px;color:var(--muted);font-size:14px;flex-wrap:wrap}
+    .nav a:hover {color:#fff}
+    .hero {padding:76px 0 65px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);align-items:center;gap:54px}
+    .eyebrow {display:inline-flex;gap:9px;align-items:center;border:1px solid #3c5b69;background:#142838;color:var(--cyan);padding:6px 13px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.07em;text-transform:uppercase}
+    .eyebrow::before {content:"";width:7px;height:7px;background:var(--cyan);border-radius:50%}
+    h1 {font-size:clamp(3rem,6.8vw,6.1rem);line-height:1.01;margin:25px 0 23px;letter-spacing:-.065em;font-weight:900}
+    h1 span {background:linear-gradient(115deg,var(--cyan),var(--lav));color:transparent;background-clip:text;-webkit-background-clip:text}
+    .lead {font-size:clamp(1.1rem,1.8vw,1.25rem);color:#ced9e6;max-width:690px;line-height:1.65}
+    .actions {display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn {padding:13px 19px;border-radius:12px;font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:9px;border:1px solid #50627a;transition:transform .15s ease,background .15s}
+    .btn:hover {transform:translateY(-2px);background:#1a2d45}
+    .primary {background:var(--cyan);color:#0a2029;border-color:var(--cyan)}
+    .primary:hover {background:#a6f5ed}
+    .portrait {min-height:364px;position:relative;padding:26px;border-radius:28px;background:linear-gradient(150deg,#193747,#18243a 63%,#241f40);border:1px solid #37536e;box-shadow:0 25px 55px #0002;overflow:hidden}
+    .portrait .orbit {position:absolute;border:1px solid #42677a;border-radius:50%;width:300px;height:300px;right:-95px;top:-83px}
+    .portrait .orbit2 {width:190px;height:190px;right:-35px;top:-25px;border-color:#596a91}
+    .portrait .big {font-size:100px;font-weight:900;line-height:1;letter-spacing:-.09em;color:#a6f5ed;margin-top:47px}
+    .portrait .small {font-size:12px;font-weight:800;letter-spacing:.14em;color:#b9c8e3;text-transform:uppercase}
+    .portrait p {margin:14px 0 0;font-weight:700;font-size:18px;max-width:230px;line-height:1.4}
+    .portrait .foot {position:absolute;bottom:26px;left:26px;color:var(--muted);font-size:12px;font-weight:700}
+    section {padding:60px 0;border-top:1px solid var(--line)}
+    .section-header {display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:27px}
+    .num {color:var(--cyan);font:700 12px ui-monospace,Consolas,monospace;letter-spacing:.14em}
+    h2 {font-size:clamp(1.9rem,3.2vw,3rem);letter-spacing:-.045em;line-height:1.18;margin:10px 0 0}
+    .section-summary {color:var(--muted);max-width:480px;margin:0}
+    .cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card {padding:26px;border-radius:18px;background:linear-gradient(145deg,#17253a,var(--card));border:1px solid var(--line)}
+    .card .tag {color:var(--cyan);font:700 12px ui-monospace,Consolas,monospace}
+    .card h3 {margin:10px 0 10px;font-size:19px;letter-spacing:-.02em}
+    .card p {font-size:14px;color:#c1ccda;line-height:1.7;margin:0}
+    .case {display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch}
+    .case .statement {background:#f4f7fb;color:#132132;padding:30px;border-radius:20px;min-height:280px}
+    .case .statement .overline {color:#345c74;text-transform:uppercase;letter-spacing:.14em;font:800 11px ui-monospace,Consolas,monospace}
+    .case .statement .before {font-weight:900;font-size:42px;letter-spacing:-.045em;margin:27px 0 8px}
+    .case .statement .after {color:#397578;font-weight:800;font-size:21px;margin-top:13px}
+    .case .detail {padding:28px;border-radius:20px;border:1px solid #456278;background:#17263a}
+    .case .detail h3 {margin:0 0 12px;font-size:21px}
+    .case .detail p {font-size:14px;color:#ced9e6}
+    .verified {color:var(--yellow);font-weight:800;letter-spacing:.03em;font-size:12px}
+    .mini-label {font:800 11px ui-monospace,Consolas,monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:.09em;margin-top:16px}
+    .code {font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#e5eaff;word-break:break-word}
+    .note {font-size:13px;color:var(--muted);margin-top:16px}
+    .risk {display:grid;grid-template-columns:34px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--line)}
+    .risk:last-child {border-bottom:none}
+    .risk .idx {font:800 12px ui-monospace,Consolas,monospace;color:var(--lav)}
+    .risk h3 {margin:0 0 3px;font-size:16px}
+    .risk p {margin:0;color:var(--muted);font-size:14px}
+    .projects {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .project {padding:23px;border:1px solid var(--line);border-radius:16px;display:block;background:#121e30;transition:border-color .15s,transform .15s}
+    .project:hover {border-color:var(--cyan);transform:translateY(-2px)}
+    .project .arrow {color:var(--cyan);font-weight:800}
+    .project h3 {margin:7px 0 10px;font-size:18px}
+    .project p {color:var(--muted);font-size:13px;margin:0}
+    .closing {padding:32px;border-radius:22px;background:linear-gradient(125deg,#173748,#262850);border:1px solid #45617a;display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+    .closing h2 {margin:0 0 8px;font-size:31px}
+    .closing p {color:#d6deed;margin:0;max-width:550px}
+    .footer {padding:28px 0 45px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media (max-width:830px) { .hero {grid-template-columns:1fr; padding-top:42px;gap:30px} .portrait {min-height:260px} .portrait .big {margin-top:14px} .case {grid-template-columns:1fr} .cards,.projects {grid-template-columns:1fr} .nav {gap:14px} }
+    @media (max-width:480px) {.wrap {padding:0 18px}.top {padding-top:18px}.nav {font-size:12px;gap:11px}.portrait {min-height:270px}.hero {padding-bottom:40px}section {padding:45px 0}.case .statement .before {font-size:32px}}
+    @media (prefers-reduced-motion:reduce) {html {scroll-behavior:auto}.btn,.project {transition:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top"><div class="brand"><span class="mark">QA</span>Алексей Сафонов</div><nav class="nav" aria-label="Навигация"><a href="#method">Подход</a><a href="#audit">Аудит</a><a href="#work">Кейсы</a></nav></header>
+    <main>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Отклик в команду Site.pro · 21.11.2026</div>
+          <h1>Я тестирую<br><span>не клики.</span><br>Я тестирую<br>результат.</h1>
+          <p class="lead">QA × AI-assisted testing × продуктовый подход. Мой фокус — воспроизводимые баги, проверяемые сценарии и автоматизация, которая действительно снижает риск релиза.</p>
+          <div class="actions"><a class="btn primary" href="#audit">Посмотреть мини-аудит <span aria-hidden="true">↗</span></a><a class="btn" href="https://github.com/safal207" target="_blank" rel="noopener noreferrer">GitHub / safal207 <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <aside class="portrait" aria-label="Принцип работы"><div class="orbit"></div><div class="orbit orbit2"></div><div class="small">WORKFLOW · NO GUESSWORK</div><div class="big">0 → 1</div><p>Гипотеза → тест → доказательство → исправление → регресс</p><div class="foot">MANUAL · E2E · CI/CD · AI</div></aside>
+      </div>
+      <section id="method" aria-labelledby="method-title">
+        <div class="section-header"><div><div class="num">01 / МОЙ ПОДХОД</div><h2 id="method-title">Как я работаю</h2></div><p class="section-summary">Не подменяю тестирование «зелёной галочкой» агента. Каждый вывод должен иметь проверяемые шаги и артефакты.</p></div>
+        <div class="cards">
+          <article class="card"><div class="tag">01 · EXPLORE</div><h3>Сначала — риск</h3><p>Разбираю пользовательский путь, бизнес-критичность, негативные сценарии, браузеры и реальные ограничения среды.</p></article>
+          <article class="card"><div class="tag">02 · AUTOMATE</div><h3>Потом — автотест</h3><p>Playwright и CI/CD для повторяемых UI/E2E-сценариев; manual QA для нюансов UX, контента и нестабильных участков.</p></article>
+          <article class="card"><div class="tag">03 · EVIDENCE</div><h3>Всегда — доказательство</h3><p>Шаги воспроизведения, ожидаемое/фактическое поведение, скриншоты, трассы, логи, конкретный статус проверки.</p></article>
+        </div>
+      </section>
+      <section id="audit" aria-labelledby="audit-title">
+        <div class="section-header"><div><div class="num">02 / SITE.PRO · ПУБЛИЧНЫЙ АУДИТ</div><h2 id="audit-title">Что я уже заметил</h2></div><p class="section-summary">Результат чтения публичных страниц Site.pro. Это не имитация тестирования редактора — только то, что подтверждается открытым контентом.</p></div>
+        <div class="case">
+          <article class="statement"><div class="overline">L10N-001 · неполная локализация</div><div class="before">“200 templates”</div><div>Текст в русскоязычном блоке на главной странице</div><div class="after">Ожидается: «200 шаблонов»</div></article>
+          <div class="detail"><div class="verified">● НАБЛЮДЕНИЕ В ДОСТУПНОЙ ПУБЛИЧНОЙ ВЕРСИИ</div><h3>Незавершённый перевод UI-текста</h3><div class="mini-label">Шаги</div><p>1. Открыть <a href="https://site.pro/ru/" target="_blank" rel="noopener noreferrer"><u>site.pro/ru/</u></a>.<br>2. Прокрутить до блока «Конструктор сайтов».<br>3. Найти карточку шаблонов.</p><div class="mini-label">Факт / ожидание</div><p>В доступной версии русской страницы встречается английское «200 templates». Текст должен соответствовать выбранному языку интерфейса.</p><div class="mini-label">Приоритет</div><p>Low, локализация/контент. Перепроверить на текущей сборке и дополнительных локалях.</p></div>
+        </div>
+        <p class="note">Источник наблюдения: доступная поисковая копия русской главной страницы Site.pro, изучена 21.11.2026; актуальность на живом сайте нуждается в ручной перепроверке. Полноценный интерактивный прогон редактора и создание опубликованного сайта ещё не выполнялись; дефекты ниже не заявляются как воспроизведённые.</p>
+      </section>
+      <section aria-labelledby="regression-title">
+        <div class="section-header"><div><div class="num">03 / ЧТО ПРОВЕРЮ В РЕДАКТОРЕ</div><h2 id="regression-title">Три приоритетных риска</h2></div><p class="section-summary">Выбраны с опорой на публичную историю исправлений Site.pro. Это план тестирования, не найденные текущие баги.</p></div>
+        <div class="risk"><div class="idx">R1</div><div><h3>Публикация и повторная публикация</h3><p>Создать сайт → опубликовать → изменить контент → переопубликовать → проверить отсутствие устаревшего кэша, 404 и неверных ссылок.</p></div></div>
+        <div class="risk"><div class="idx">R2</div><div><h3>Мультиязычность и формы</h3><p>RU/EN-переключение, обязательные поля, корректное значение select, отправка после согласия с cookies, повторный submit и ошибки сети.</p></div></div>
+        <div class="risk"><div class="idx">R3</div><div><h3>Мобильная верстка и браузерная матрица</h3><p>320–430 px, клавиатурная навигация, Chromium/Firefox/WebKit, переходы меню, перекрытие кнопок и потеря состояния.</p></div></div>
+        <p class="note">Публичный changelog Site.pro: <a href="https://site.pro/Change-Log/" target="_blank" rel="noopener noreferrer"><u>site.pro/Change-Log/</u></a>.</p>
+      </section>
+      <section id="work" aria-labelledby="work-title">
+        <div class="section-header"><div><div class="num">04 / ПРИМЕРЫ РАБОТЫ</div><h2 id="work-title">Код и следы работы</h2></div><p class="section-summary">Открытые проекты с браузерными сценариями, CI-проверками и подходом к качеству через артефакты.</p></div>
+        <div class="projects">
+          <a class="project" href="https://github.com/safal207/robys-coffee-house-demo" target="_blank" rel="noopener noreferrer"><div class="arrow">GitHub ↗</div><h3>Roby’s Coffee House</h3><p>Пользовательские сценарии, мобильный и кроссбраузерный QA, visual regression, анализ CI и релизных регрессий.</p></a>
+          <a class="project" href="https://github.com/safal207/sefa-beach/pull/7" target="_blank" rel="noopener noreferrer"><div class="arrow">GitHub PR ↗</div><h3>Sefa Beach</h3><p>Playwright browser regression, responsive-матрица, пользовательские сценарии и автоматические релизные проверки.</p></a>
+          <a class="project" href="https://github.com/safal207/T-Trace" target="_blank" rel="noopener noreferrer"><div class="arrow">GitHub ↗</div><h3>T-Trace</h3><p>Формат отслеживания переходов состояния: прозрачность истории, воспроизводимость и наблюдаемость сложных систем.</p></a>
+        </div>
+      </section>
+      <section><div class="closing"><div><h2>Сценарий. Доказательство. Решение.</h2><p>Предлагаю начать с критического пути Site.pro: создание сайта → редактирование → публикация → мобильный E2E → CI. Покажу не число тестов, а снижение риска для пользователя и бизнеса.</p></div><a class="btn primary" href="https://github.com/safal207" target="_blank" rel="noopener noreferrer">Посмотреть GitHub ↗</a></div></section>
+    </main>
+    <footer class="footer"><span>Алексей Сафонов · QA & AI-assisted testing</span><span>Сделано специально для отклика в Site.pro · 21 ноября 2026</span></footer>
+  </div>
+</body>
+</html>
